@@ -33,6 +33,13 @@ if ("optional" IN_LIST want_components)
     endif ()
 
 endif ()
+if ("filesystem" IN_LIST want_components)
+    if(CXX17_FIND_REQUIRED)
+        find_package(Filesystem REQUIRED COMPONENTS Final Experimental)
+    else(CXX17_FIND_REQUIRED)
+        find_package(Filesystem COMPONENTS Final Experimental)
+    endif(CXX17_FIND_REQUIRED)
+endif ()
 if ("map" IN_LIST want_components)
     string(CONFIGURE [[
         #include <map>
