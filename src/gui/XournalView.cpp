@@ -24,10 +24,9 @@
 #include <cmath>
 #include <tuple>
 
-XournalView::XournalView(GtkWidget* parent, Control* control, ScrollHandling* scrollHandling, ZoomGesture* zoomGesture)
+XournalView::XournalView(GtkWidget* parent, Control* control, ScrollHandling* scrollHandling)
  : scrollHandling(scrollHandling)
  , control(control)
- , zoomGesture(zoomGesture)
 {
 	XOJ_INIT_TYPE(XournalView);
 
@@ -645,13 +644,6 @@ ScrollHandling* XournalView::getScrollHandling()
 	XOJ_CHECK_TYPE(XournalView);
 
 	return scrollHandling;
-}
-
-ZoomGesture* XournalView::getZoomGestureHandler()
-{
-	XOJ_CHECK_TYPE(XournalView);
-
-	return zoomGesture;
 }
 
 GtkWidget* XournalView::getWidget()

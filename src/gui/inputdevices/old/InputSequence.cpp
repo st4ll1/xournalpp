@@ -194,11 +194,6 @@ bool InputSequence::actionMoved(guint32 time)
 
 	changeTool();
 
-	if (xournal->view->getControl()->getWindow()->isGestureActive())
-	{
-		return false;
-	}
-
 	if (h->getToolType() == TOOL_HAND)
 	{
 		if (inScrolling)
@@ -406,12 +401,6 @@ void InputSequence::actionEnd(guint32 time)
 	GtkXournal* xournal = inputHandler->getXournal();
 	XournalppCursor* cursor = xournal->view->getCursor();
 	ToolHandler* h = inputHandler->getToolHandler();
-
-	if (xournal->view->getControl()->getWindow()->isGestureActive())
-	{
-		stopInput();
-		return;
-	}
 
 	cursor->setMouseDown(false);
 
